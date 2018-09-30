@@ -1,0 +1,97 @@
+@media only screen and (min-width: 576px) {
+  .landing {
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .landing {
+    height: 120px;
+  }
+  
+  .card-name {
+    font-size: 1.5rem;
+  }
+}
+
+#homebase-img {
+  width: 150px;
+}
+
+#navatar > img {
+  width: 30px;
+}
+
+.corner-login {
+  position: fixed;
+  top: .75rem;
+  right: .75rem;
+}
+
+.landing-buttons {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.landing-content {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.theme-bluegray {
+  color: #748492;
+}
+
+.theme-bg-bluegray {
+  color: white;
+  background-color: #748492;
+}
+
+.btn-theme-bluegray {
+  color: white;
+  background-color: #748492;
+  border-color: #748492;
+  border-radius: 1.25rem;
+}
+
+.btn-theme-bluegray-mo {
+  color: #B9C1C8;
+  background-color: #3A4249;
+  border-color: #748492;
+  border-radius: 1.25rem;
+}
+
+a.btn-theme-bluegray:hover {
+  color: #B9C1C8;
+  background-color: #3A4249;
+}
+
+.btn-theme-outline-bluegray {
+  color: #748492;
+  background-color: transparent;
+  border-color: #748492;
+  border-radius: 1.25rem;
+}
+
+.btn-theme-delete {
+  border-radius: 1.25rem;
+}
+
+a.btn-theme-outline-bluegray:hover {
+  color: white;
+  background-color: #748492;
+}
+
+.login, .registration {
+  padding-top: 80px;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+
+img {
+  width: 100%;
+}
+

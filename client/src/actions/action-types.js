@@ -1,0 +1,14 @@
+export const ACCOUNT_LOADING = 'ACCOUNT_LOADING';
+export const CLEAR_ACCOUNT = 'CLEAR_ACCOUNT';
+export const GET_ACCOUNT = 'GET_ACCOUNT';
+
+export const CHARACTER_LOADING = 'CHARACTER_LOADING';
+export const DELETE_CHARACTER = 'DELETE_CHARACTER';
+export const GET_CHARACTER = 'GET_CHARACTER';
+export const GET_CHARACTERS = 'GET_CHARACTERS';
+
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const GET_ERRORS = 'GET_ERRORS';
+
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_USER = 'SET_USER';
