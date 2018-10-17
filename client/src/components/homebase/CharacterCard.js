@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 
 // Actions
-import { deleteCharacter } from '../../actions/accountActions';
+import { deleteCharacter } from '../../actions/characterActions';
 
 // Components
 import Placeholder from '../shared/Placeholder';

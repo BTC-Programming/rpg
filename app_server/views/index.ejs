@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='css/index.css'>
+  </head>
+  <body>
+    <div class='display'>
+      <h1 id='fullname'><%= firstName %> <%= lastName %></h1>
+      <% if (birthdate) { %>
+        <p><strong>Birthdate:</strong> <%= birthdate %></p>
+      <% } %>
+      <% if (locale) { %>
+        <p><strong>From:</strong> <%= locale %></p>
+      <% } %>
+      <% if (favColor) { %>
+        <p><strong>Favorite Color:</strong> <%= favColor %></p>
+      <% } %>
+      <% if (favSong) { %>
+        <p><strong>Favorite Song:</strong> <%= favSong %></p>
+      <% } %>
+      <% if (favAnimal) { %>
+        <p><strong>Favorite Animal:</strong> <%= favAnimal %></p>
+      <% } %>
+    </div>
+    <div class='card'>
+      <form method='post'>
+        <h2 id='formheader'>Edit Your Information</h2>
+        <div class='form-row'>
+          <label>Name <span class='required'>(required)</span>:</label>
+          <% if (firstNameErr) { %>
+            <input class='alert' placeholder='First Name Required' name='firstname'>
+          <% } else { %>
+            <input type='text' placeholder='First Name' value='<%= firstName %>' name='firstname' />
+          <% } %>
+          <% if (lastNameErr) { %>
+            <input class='alert' placeholder='Last Name Required' name='lastname' />
+          <% } else { %>
+            <input type='text' placeholder='Last Name' value='<%= lastName %>' name='lastname' />
+          <% } %>
+        </div>
+        <div class='form-row'>
+          <label>Date of Birth:</label>
+          <input type='date' name='birthdate' />
+        </div>
+        <div class='form-row'>
+          <label>Where are you from?</label>
+          <input type='text' placeholder='Hometown, Country, Etc.' name='locale' />
+        </div>
+        <div class='form-row'>
+          <label>Favorite Color:</label>
+          <input type='text' placeholder='Color' name='favcolor' />
+        </div>
+        <div class='form-row'>
+          <label>Favorite Song:</label>
+          <input type='text' placeholder='Song' name='favsong' />
+        </div>
+        <div class='form-row'>
+          <label>Favorite Animal:</label>
+          <input type='text' placeholder='Animal' name='favanimal' />
+        </div>
+        <div class='form-row centered'>
+          <input class='button' type='submit' value='Submit New Info'>
+        </div>
+    </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script>
+      $('.button').hover(function () {
+        $(this).toggleClass('hovered');
+      });
+    </script>
+  </body>
+</html>

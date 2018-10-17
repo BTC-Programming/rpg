@@ -5,13 +5,19 @@ const passport = require('passport');
 const path = require('path');
 
 // API Routes
-const account = require('./routes/api/account');
-const characters = require('./routes/api/characters');
-const users = require('./routes/api/users');
+const account = require('./api/routes/account');
+const characters = require('./api/routes/characters');
+const users = require('./api/routes/users');
 
 const db = require('./config/keys').mongoURI;
 
 const app = express();
+
+// Development settings
+if (process.env.NODE_ENV === 'development') {
+  app.set('views', path.join(__dirname, 'app_server/views'));
+  app.set('view engine', 'ejs');
+} 
 
 // Body parsing middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,6 +39,13 @@ require('./strategies/jwt-strategy')(passport);
 app.use('/api/account', account);
 app.use('/api/characters', characters);
 app.use('/api/users', users);
+
+// Development routes only
+if (process.env.NODE_ENV === 'development') {
+  app.use('/api/test', require('./api/routes/test'));
+  app.use(express.static(path.join(__dirname, 'public')));
+  app.use('/test', require('./app_server/routes/test'));
+}
 
 // Use React build in production
 if (process.env.NODE_ENV === 'production') {

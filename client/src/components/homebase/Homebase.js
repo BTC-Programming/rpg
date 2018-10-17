@@ -9,21 +9,13 @@ import { getUserAccount } from '../../actions/accountActions';
 // Components
 import PageLoading from '../shared/PageLoading';
 import ManageAccount from './ManageAccount';
-import CharacterCard from './CharacterCard';
+import CharacterList from './CharacterList';
 
 class Homebase extends Component {
   componentDidMount() {
     this.props.getUserAccount();
   }
-  
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.characters && (this.props.characters !== prevProps.characters)) {
-      this.setState({
-        characters: this.props.characters
-      });
-    }
-  }
-  
+ 
   render() {
     const { account, loading } = this.props.account;
     let display;
@@ -36,9 +28,6 @@ class Homebase extends Component {
         <Redirect to='/newuser' />
       );
     } else {
-      const characterList = account.characters.map(character => (
-        <CharacterCard key={character._id} character={character} />
-      ));
       display = (
         <div className='container-fluid'>
           <div className='row'>
@@ -56,7 +45,7 @@ class Homebase extends Component {
             <div className='col-md-9'>
               <div className='homebase-display'>
                 <ManageAccount />
-                {characterList}
+                <CharacterList />
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {
   CHARACTER_LOADING,
+  DELETE_CHARACTER,
   GET_CHARACTER,
   GET_CHARACTERS,
   GET_ERRORS
@@ -48,6 +49,25 @@ export const getCharacters = () => (dispatch) => {
       }))
     .catch(err => dispatch({
         type: GET_CHARACTERS,
-        payload: {}
+        payload: []
       }));
+};
+
+// Delete a user's character
+export const deleteCharacter = (id) => (dispatch) => {
+  axios.delete(`/api/characters/${id}`)
+    .then(res =>
+      dispatch({
+        type: DELETE_CHARACTER,
+        payload: id
+      })
+    )
+    .catch(err => {
+      console.log('delete err:', err);
+      return dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    }
+    );
 };

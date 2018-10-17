@@ -1,8 +1,7 @@
 import {
   ACCOUNT_LOADING,
   CLEAR_ACCOUNT,
-  GET_ACCOUNT,
-  DELETE_CHARACTER
+  GET_ACCOUNT
 } from '../actions/action-types';
 
 const initialState = {
@@ -21,17 +20,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         account: null
-      }
+      };
     case GET_ACCOUNT:
       return {
         ...state,
         account: action.payload,
         loading: false
-      };
-    case DELETE_CHARACTER:
-      return {
-        ...state,
-        characters: state.account.characters.filter(character => character._id !== action.payload)
       };
     default:
       return state;

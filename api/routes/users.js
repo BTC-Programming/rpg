@@ -16,6 +16,14 @@ const User = require('../../models/User');
 const validateRegisterData = require('../../validators/register');
 const validateLoginData = require('../../validators/login');
 
+// GET api/users/test
+// Test the user API route
+router.get('/test',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.json({ msg: 'API router responded!' });
+});
+
 // POST api/users/register
 // Register a new user
 router.post('/register',
